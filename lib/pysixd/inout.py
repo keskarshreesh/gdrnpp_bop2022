@@ -576,7 +576,7 @@ def load_ply(path, vertex_scale=1.0):
         model["texture_file"] = texture_file
     model["pts"] = np.zeros((n_pts, 3), np.float32)
     if n_faces > 0:
-        model["faces"] = np.zeros((n_faces, face_n_corners), np.float)
+        model["faces"] = np.zeros((n_faces, face_n_corners), np.float32)
 
     # print(pt_props)
     pt_props_names = [p[0] for p in pt_props]
@@ -586,22 +586,22 @@ def load_ply(path, vertex_scale=1.0):
     is_normal = False
     if {"nx", "ny", "nz"}.issubset(set(pt_props_names)):
         is_normal = True
-        model["normals"] = np.zeros((n_pts, 3), np.float)
+        model["normals"] = np.zeros((n_pts, 3), np.float32)
 
     is_color = False
     if {"red", "green", "blue"}.issubset(set(pt_props_names)):
         is_color = True
-        model["colors"] = np.zeros((n_pts, 3), np.float)
+        model["colors"] = np.zeros((n_pts, 3), np.float32)
 
     is_texture_pt = False
     if {"texture_u", "texture_v"}.issubset(set(pt_props_names)):
         is_texture_pt = True
-        model["texture_uv"] = np.zeros((n_pts, 2), np.float)
+        model["texture_uv"] = np.zeros((n_pts, 2), np.float32)
 
     is_texture_face = False
     if {"texcoord"}.issubset(set(face_props_names)):
         is_texture_face = True
-        model["texture_uv_face"] = np.zeros((n_faces, 6), np.float)
+        model["texture_uv_face"] = np.zeros((n_faces, 6), np.float32)
 
     # Formats for the binary case.
     formats = {
