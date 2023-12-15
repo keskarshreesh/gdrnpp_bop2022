@@ -271,9 +271,9 @@ def load_scene_gt(path):
     for im_id, im_gt in scene_gt.items():
         for gt in im_gt:
             if "cam_R_m2c" in gt.keys():
-                gt["cam_R_m2c"] = np.array(gt["cam_R_m2c"], np.float).reshape((3, 3))
+                gt["cam_R_m2c"] = np.array(gt["cam_R_m2c"], np.float32).reshape((3, 3))
             if "cam_t_m2c" in gt.keys():
-                gt["cam_t_m2c"] = np.array(gt["cam_t_m2c"], np.float).reshape((3, 1))
+                gt["cam_t_m2c"] = np.array(gt["cam_t_m2c"], np.float32).reshape((3, 1))
     return scene_gt
 
 
@@ -325,8 +325,8 @@ def load_bop_results(path, version="bop19"):
                         "im_id": int(elems[1]),
                         "obj_id": int(elems[2]),
                         "score": float(elems[3]),
-                        "R": np.array(list(map(float, elems[4].split())), np.float).reshape((3, 3)),
-                        "t": np.array(list(map(float, elems[5].split())), np.float).reshape((3, 1)),
+                        "R": np.array(list(map(float, elems[4].split())), np.float32).reshape((3, 3)),
+                        "t": np.array(list(map(float, elems[5].split())), np.float32).reshape((3, 1)),
                         "time": float(elems[6]),
                     }
 

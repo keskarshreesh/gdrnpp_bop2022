@@ -34,9 +34,9 @@ link_directories("/usr/local/cuda-11.8/lib" "/usr/local/cuda-11.8/targets/x86_64
 
 # cuda_add_library(CppEGLRenderer MODULE  cpp/egl_renderer.cpp)
 add_library(CppEGLRenderer MODULE cpp/egl_renderer.cpp)
-target_include_directories(CppEGLRenderer PRIVATE "/usr/local/cuda-11.8/include" "/usr/local/cuda-11.8/targets/x86_64-linux/include")
+target_include_directories(CppEGLRenderer PRIVATE "/usr/local/cuda-12/include" "/usr/local/cuda-12/targets/x86_64-linux/include")
 # Equivalent to pass flags -lGL, -lGLU and -lglut
-target_link_libraries(CppEGLRenderer PRIVATE pybind11::module dl pthread GL "/usr/local/cuda-11.8/targets/x86_64-linux/lib/libcudart.so")
+target_link_libraries(CppEGLRenderer PRIVATE pybind11::module dl pthread GL "/usr/local/cuda-12/targets/x86_64-linux/lib/libcudart.so")
 set_target_properties(CppEGLRenderer PROPERTIES PREFIX "${PYTHON_MODULE_PREFIX}"
                                          SUFFIX "${PYTHON_MODULE_EXTENSION}")
 

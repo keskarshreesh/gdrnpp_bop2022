@@ -41,7 +41,7 @@ p = {
     # of individual objects are blended together.
     "vis_rgb_resolve_visib": True,
     # Indicates whether to save images of depth differences.
-    "vis_depth_diff": True,
+    "vis_depth_diff": False,
     # Whether to use the original model color.
     "vis_orig_color": False,
     # Type of the renderer (used for the VSD pose error function).

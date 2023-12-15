@@ -39,7 +39,7 @@ class CMakeBuild(build_ext):
             "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=" + extdir,
             "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=" + os.path.join(extdir, "build"),
             "-DPYTHON_EXECUTABLE=" + sys.executable,
-            # "-DCUDA_INCLUDE_DIRS:PATH=/usr/local/cuda-11.8/targets/x86_64-linux/include;/usr/local/cuda-11.8/include",
+            # "-DCUDA_INCLUDE_DIRS:PATH=/usr/local/cuda-12/targets/x86_64-linux/include;/usr/local/cuda-12/include",
             # "--trace-expand"
         ]
 

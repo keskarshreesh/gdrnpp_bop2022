@@ -83,7 +83,7 @@ def depth_for_vis(depth, valid_start=0.2, valid_end=1.0):
     :return: Transformed depth image.
     """
     mask = depth > 0
-    depth_n = depth.astype(np.float)
+    depth_n = depth.astype(np.float32)
     depth_n[mask] -= depth_n[mask].min()
     depth_n[mask] /= depth_n[mask].max() / (valid_end - valid_start)
     depth_n[mask] += valid_start
@@ -192,7 +192,7 @@ def vis_object_poses(
                 text_color = (1.0, 1.0, 1.0)
                 text_size = 11
 
-                bbox = misc.calc_2d_bbox(xs, ys, im_size)
+                bbox = misc.calc_2d_bbox_xywh(xs, ys, im_size[1], im_size[0])
                 im_size = (obj_mask.shape[1], obj_mask.shape[0])
                 ren_rgb_info = draw_rect(ren_rgb_info, bbox, bbox_color)
 
